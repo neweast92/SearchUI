@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<!--    <link rel="stylesheet" href="style.css"/>-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+<form role="search" action = "http://127.0.0.1:5000/result" method = "POST">
+<!--    onsubmit="event.preventDefault();" -->
+  <label for="search">Search for stuff</label>
+  <input type="search" name="Word" placeholder="put the word..." autofocus required />
+  <button type="submit" value = "submit">Go</button>
+</form>
+<!--<script src="script2.js"></script>-->
+</body>
+
+</html>

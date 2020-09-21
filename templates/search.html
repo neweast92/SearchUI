@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+
+	<!-- JS 및 CSS -->
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/default.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/board.css') }}">
+</head>
+<body>
+	<div class="wrap">
+		<header class="header cfixed">
+			<div class="container">
+				<h1 class="logo"><a href="#">지능형 인재추천 서비스</a></h1>
+				<nav>
+					<ul class="gnb">
+						<li><a href="#"></a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+		<section class="content">
+			<div class="container content-container">
+				<section class="board-section">
+					<h2 class="sec-tit">전문분야별 유사도 검색</h2>
+					<hr class="divider">
+					<div class="content-row-1">
+						<form role="search" action = "http://127.0.0.1:5000/result" method = "POST">
+							<table class="search-table">
+								<tr>
+									<td><strong>성별</strong></td>
+									<td>
+										<div class="sex-div">
+
+											<input type="radio" name="sex" id="male-radio" checked>
+											<label for="male-radio">남자</label>
+											<input type="radio" name="sex" id="female-radio">
+											<label for="female-radio">여자</label>
+										</div>
+									</td>
+									<td><strong>연령</strong></td>
+									<td>
+										<div class="age-div">
+											<input type="text"> ~
+											<input type="text" name="" value="">
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td><strong>전문분야</strong></td>
+									<td><input type="text" class="category-input"></td>
+									<td><strong>상세분야</strong></td>
+									<td>
+										<select name="subcategory" id="subcategory-input">
+											{% for i in subcategory %}
+											<option value="{{i}}">{{i}}</option>
+											{% endfor %}
+										</select>
+									</td>
+								</tr>
+								<tr>
+									<td><strong>키워드</strong></td>
+									<td colspan="3"><input type="text" class="keyword-input"></td>
+								</tr>
+
+							</table>
+							<div class="btn-div">
+								<input type="submit" id="btn" class="btn" value="검색">
+							</div>
+						</form>
+					</div>
+					{% block content%}{% endblock %}
+				</section>
+			</div>
+		</section>
+	</div>
+</body>
+</html>
